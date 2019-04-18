@@ -6,26 +6,17 @@
   when: ansible_os_family == "Debian"
 
 - name: install deps (Ubuntu)
-  apt: >
-    pkg={{item}}
-    state=present
-  with_items:
-    - python-pip
-    - python-dev
+  apt: 
+    name: ["python-pip", "python-dev"]
+    state: present
   when: ansible_os_family == "Debian"
 
 - name: install deps (RHEL)
-  yum: >
-    name={{item}}
-    state=installed
-  with_items:
-    - python-pip
-    - python-devel
+  yum:
+    name: ["python-pip", "python-devel"]
+    state: installed
   when: ansible_os_family == "RedHat"
 
 - name: install python module consulate
-  pip: >
-    name={{item}}
-  with_items:
-    - tornado
-    - consulate
+  pip:
+    name: ["tornado", "consulate"]

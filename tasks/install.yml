@@ -6,21 +6,17 @@
   when: ansible_os_family == "Debian"
 
 - name: install deps (Ubuntu)
-  apt: >
-    pkg={{item}}
-    state=present
+  apt:
+    name: ["unzip", "jq"]
+    state: present
   with_items:
-    - unzip
-    - jq
+    - 
   when: ansible_os_family == "Debian"
 
 - name: install deps (RHEL)
-  yum: >
-    pkg={{item}}
-    state=installed
-  with_items:
-    - unzip
-    - jq
+  yum:
+    name: ["unzip", "jq"]
+    state: present
   when: ansible_os_family == "RedHat"
 
 - name: check archive stat
