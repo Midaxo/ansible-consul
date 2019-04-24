@@ -9,8 +9,6 @@
   apt:
     name: ["unzip", "jq"]
     state: present
-  with_items:
-    - 
   when: ansible_os_family == "Debian"
 
 - name: install deps (RHEL)
