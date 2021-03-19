@@ -9,8 +9,6 @@ server {
     {% if ansible_os_family == "Debian" -%}
 
   # --- rule ------------------------------------------------------------------
-    include rules/gzip.conf;
-    include rules/security.conf;
     {% endif %}
 
 
